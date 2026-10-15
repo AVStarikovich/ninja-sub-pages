@@ -1,0 +1,201 @@
+{
+  "allow-lan": false,
+  "mode": "rule",
+  "log-level": "info",
+  "ipv6": false,
+  "profile": {
+    "store-selected": true,
+    "store-fake-ip": true
+  },
+  "dns": {
+    "enable": true,
+    "enhanced-mode": "fake-ip",
+    "listen": "127.0.0.1:1053",
+    "ipv6": false,
+    "fake-ip-filter": [
+      "+.lan",
+      "+.local",
+      "localhost",
+      "+.home.arpa"
+    ],
+    "nameserver": [
+      "114.114.114.114",
+      "8.8.8.8"
+    ],
+    "default-nameserver": [
+      "8.8.8.8"
+    ]
+  },
+  "rules": [
+    "DOMAIN-SUFFIX,rvision.ru,DIRECT",
+    "DOMAIN-SUFFIX,rvision.pro,DIRECT",
+    "DOMAIN-SUFFIX,rvision.local,DIRECT",
+    "DOMAIN-SUFFIX,yandex.ru,DIRECT",
+    "DOMAIN-SUFFIX,yandex.com,DIRECT",
+    "DOMAIN-SUFFIX,ya.ru,DIRECT",
+    "DOMAIN-SUFFIX,ya.com,DIRECT",
+    "DOMAIN-SUFFIX,yandex.net,DIRECT",
+    "DOMAIN-SUFFIX,yastatic.net,DIRECT",
+    "DOMAIN-SUFFIX,pikabu.ru,DIRECT",
+    "DOMAIN-SUFFIX,ozon.ru,DIRECT",
+    "DOMAIN,localhost,DIRECT",
+    "DOMAIN-SUFFIX,lan,DIRECT",
+    "DOMAIN-SUFFIX,local,DIRECT",
+    "DOMAIN-SUFFIX,home.arpa,DIRECT",
+    "IP-CIDR,127.0.0.0/8,DIRECT,no-resolve",
+    "IP-CIDR,10.0.0.0/8,DIRECT,no-resolve",
+    "IP-CIDR,172.16.0.0/12,DIRECT,no-resolve",
+    "IP-CIDR,192.168.0.0/16,DIRECT,no-resolve",
+    "IP-CIDR,169.254.0.0/16,DIRECT,no-resolve",
+    "MATCH,Proxy"
+  ],
+  "proxies": [
+    {
+      "name": "RU>EU_xhttp_vlessXHTTPtls-stream-up",
+      "type": "vless",
+      "server": "int.arigato.starikovich.ru",
+      "port": 443,
+      "uuid": "7fd1d594-b4b2-0001-6f5b-2e5eae1f0509",
+      "udp": true,
+      "tls": true,
+      "skip-cert-verify": false,
+      "servername": "int.arigato.starikovich.ru",
+      "client-fingerprint": "firefox",
+      "packet-encoding": "xudp",
+      "alpn": [
+        "h2"
+      ],
+      "network": "xhttp",
+      "xhttp-opts": {
+        "path": "/o4gge9",
+        "host": "int.arigato.starikovich.ru",
+        "mode": "stream-up",
+        "no-grpc-header": false,
+        "x-padding-bytes": "150-400",
+        "sc-max-each-post-bytes": "500000",
+        "sc-min-posts-interval-ms": "5-15",
+        "reuse-settings": {
+          "max-concurrency": "2-4",
+          "c-max-reuse-times": "800-1500",
+          "h-max-reusable-secs": "900-1200"
+        }
+      }
+    },
+    {
+      "name": "RU>EU_raw_vlessXHTTPtls-stream-up",
+      "type": "vless",
+      "server": "int.arigato.starikovich.ru",
+      "port": 443,
+      "uuid": "7fd1d594-b4b2-0001-6f5b-2e5eae1f0509",
+      "udp": true,
+      "tls": true,
+      "skip-cert-verify": false,
+      "servername": "int.arigato.starikovich.ru",
+      "client-fingerprint": "firefox",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "vlessXHTTPtls-stream-up",
+      "type": "vless",
+      "server": "ext.arigato.starikovich.ru",
+      "port": 443,
+      "uuid": "c705d918-6723-4236-85c3-8772f5709f2e",
+      "udp": true,
+      "tls": true,
+      "skip-cert-verify": false,
+      "servername": "ext.arigato.starikovich.ru",
+      "client-fingerprint": "firefox",
+      "packet-encoding": "xudp",
+      "alpn": [
+        "h2"
+      ],
+      "network": "xhttp",
+      "xhttp-opts": {
+        "path": "/b2zqf7",
+        "host": "ext.arigato.starikovich.ru",
+        "mode": "stream-up",
+        "no-grpc-header": false,
+        "x-padding-bytes": "150-400",
+        "sc-max-each-post-bytes": "500000",
+        "sc-min-posts-interval-ms": "5-15",
+        "reuse-settings": {
+          "max-concurrency": "2-4",
+          "c-max-reuse-times": "800-1500",
+          "h-max-reusable-secs": "900-1200"
+        }
+      }
+    },
+    {
+      "name": "vlessRAWtlsVision-autoXRAY",
+      "type": "vless",
+      "server": "ext.arigato.starikovich.ru",
+      "port": 443,
+      "uuid": "c705d918-6723-4236-85c3-8772f5709f2e",
+      "udp": true,
+      "tls": true,
+      "skip-cert-verify": false,
+      "servername": "ext.arigato.starikovich.ru",
+      "client-fingerprint": "firefox",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "Hysteria2",
+      "type": "hysteria2",
+      "server": "ext.arigato.starikovich.ru",
+      "port": 443,
+      "password": "828e58aec669e670",
+      "sni": "ext.arigato.starikovich.ru",
+      "skip-cert-verify": false,
+      "alpn": [
+        "h3"
+      ]
+    }
+  ],
+  "proxy-groups": [
+    {
+      "name": "Proxy",
+      "type": "select",
+      "proxies": [
+        "AUTO",
+        "FALLBACK",
+        "RU>EU_xhttp_vlessXHTTPtls-stream-up",
+        "RU>EU_raw_vlessXHTTPtls-stream-up",
+        "vlessXHTTPtls-stream-up",
+        "vlessRAWtlsVision-autoXRAY",
+        "Hysteria2",
+        "DIRECT"
+      ]
+    },
+    {
+      "name": "AUTO",
+      "type": "url-test",
+      "proxies": [
+        "RU>EU_xhttp_vlessXHTTPtls-stream-up",
+        "RU>EU_raw_vlessXHTTPtls-stream-up",
+        "vlessXHTTPtls-stream-up",
+        "vlessRAWtlsVision-autoXRAY",
+        "Hysteria2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": 300,
+      "tolerance": 50,
+      "lazy": true
+    },
+    {
+      "name": "FALLBACK",
+      "type": "fallback",
+      "proxies": [
+        "RU>EU_xhttp_vlessXHTTPtls-stream-up",
+        "RU>EU_raw_vlessXHTTPtls-stream-up",
+        "vlessXHTTPtls-stream-up",
+        "vlessRAWtlsVision-autoXRAY",
+        "Hysteria2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": 300,
+      "lazy": true
+    }
+  ]
+}
