@@ -1,0 +1,232 @@
+{
+  "allow-lan": false,
+  "mode": "rule",
+  "log-level": "info",
+  "ipv6": false,
+  "profile": {
+    "store-selected": true,
+    "store-fake-ip": true
+  },
+  "dns": {
+    "enable": true,
+    "enhanced-mode": "fake-ip",
+    "listen": "127.0.0.1:1053",
+    "ipv6": false,
+    "fake-ip-filter": [
+      "+.lan",
+      "+.local",
+      "localhost",
+      "+.home.arpa"
+    ],
+    "nameserver": [
+      "114.114.114.114",
+      "8.8.8.8"
+    ],
+    "default-nameserver": [
+      "8.8.8.8"
+    ]
+  },
+  "proxies": [
+    {
+      "name": "🇷🇺 Россия => Финляндия | RAW XHTTP VLESS",
+      "type": "vless",
+      "server": "varyag.starikovich.ru",
+      "port": 443,
+      "uuid": "dc2a80ff-1634-0001-3b96-f8e834366bc6",
+      "udp": true,
+      "tls": true,
+      "skip-cert-verify": false,
+      "servername": "varyag.starikovich.ru",
+      "client-fingerprint": "firefox",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "🇷🇺 Россия => Финляндия | XHTTP VLESS",
+      "type": "vless",
+      "server": "varyag.starikovich.ru",
+      "port": 443,
+      "uuid": "dc2a80ff-1634-0001-3b96-f8e834366bc6",
+      "udp": true,
+      "tls": true,
+      "skip-cert-verify": false,
+      "servername": "varyag.starikovich.ru",
+      "client-fingerprint": "firefox",
+      "packet-encoding": "xudp",
+      "alpn": [
+        "h2"
+      ],
+      "network": "xhttp",
+      "xhttp-opts": {
+        "path": "/bd8eib",
+        "host": "varyag.starikovich.ru",
+        "mode": "stream-up",
+        "no-grpc-header": true,
+        "x-padding-bytes": "150-400",
+        "sc-max-each-post-bytes": "500000",
+        "sc-min-posts-interval-ms": "5-15",
+        "reuse-settings": {
+          "max-concurrency": "2-4",
+          "c-max-reuse-times": "800-1500",
+          "h-max-reusable-secs": "900-1200"
+        }
+      }
+    },
+    {
+      "name": "🇫🇮 Финляндия | XHTTP VLESS",
+      "type": "vless",
+      "server": "ninja.starikovich.ru",
+      "port": 443,
+      "uuid": "d1ad641f-b927-4a02-81ad-e10151de4b9b",
+      "udp": true,
+      "tls": true,
+      "skip-cert-verify": false,
+      "servername": "ninja.starikovich.ru",
+      "client-fingerprint": "firefox",
+      "packet-encoding": "xudp",
+      "alpn": [
+        "h2"
+      ],
+      "network": "xhttp",
+      "xhttp-opts": {
+        "path": "/zrpfc8",
+        "host": "ninja.starikovich.ru",
+        "mode": "stream-up",
+        "no-grpc-header": true,
+        "x-padding-bytes": "150-400",
+        "sc-max-each-post-bytes": "500000",
+        "sc-min-posts-interval-ms": "5-15",
+        "reuse-settings": {
+          "max-concurrency": "2-4",
+          "c-max-reuse-times": "800-1500",
+          "h-max-reusable-secs": "900-1200"
+        }
+      }
+    },
+    {
+      "name": "🇫🇮 Финляндия | RAW VLESS",
+      "type": "vless",
+      "server": "ninja.starikovich.ru",
+      "port": 443,
+      "uuid": "d1ad641f-b927-4a02-81ad-e10151de4b9b",
+      "udp": true,
+      "tls": true,
+      "skip-cert-verify": false,
+      "servername": "ninja.starikovich.ru",
+      "client-fingerprint": "firefox",
+      "packet-encoding": "xudp",
+      "flow": "xtls-rprx-vision"
+    },
+    {
+      "name": "🇫🇮 Финляндия | HYSTERIA2",
+      "type": "hysteria2",
+      "server": "ninja.starikovich.ru",
+      "port": 443,
+      "password": "eaa0857fff46902f",
+      "sni": "ninja.starikovich.ru",
+      "skip-cert-verify": false,
+      "alpn": [
+        "h3"
+      ]
+    }
+  ],
+  "rules": [
+    "DOMAIN-SUFFIX,apple-relay.apple.com,Proxy",
+    "DOMAIN-SUFFIX,apple-relay.akamaized.net,Proxy",
+    "DOMAIN-SUFFIX,apple-relay.cloudflare.com,Proxy",
+    "DOMAIN-SUFFIX,apple-relay.fastly-edge.com,Proxy",
+    "DOMAIN-SUFFIX,apple-relay.mask.apple-dns.net,Proxy",
+    "DOMAIN-SUFFIX,apple.com,DIRECT",
+    "DOMAIN-SUFFIX,icloud.com,DIRECT",
+    "DOMAIN-SUFFIX,icloud-content.com,DIRECT",
+    "DOMAIN-SUFFIX,mzstatic.com,DIRECT",
+    "DOMAIN-SUFFIX,rvision.ru,DIRECT",
+    "DOMAIN-SUFFIX,rvision.pro,DIRECT",
+    "DOMAIN-SUFFIX,rvision.local,DIRECT",
+    "DOMAIN-SUFFIX,yandex.ru,DIRECT",
+    "DOMAIN-SUFFIX,yandex.com,DIRECT",
+    "DOMAIN-SUFFIX,ya.ru,DIRECT",
+    "DOMAIN-SUFFIX,ya.com,DIRECT",
+    "DOMAIN-SUFFIX,yandex.net,DIRECT",
+    "DOMAIN-SUFFIX,yastatic.net,DIRECT",
+    "DOMAIN-SUFFIX,pikabu.ru,DIRECT",
+    "DOMAIN-SUFFIX,ozon.ru,DIRECT",
+    "DOMAIN-SUFFIX,ozone.ru,DIRECT",
+    "DOMAIN-SUFFIX,ozonusercontent.com,DIRECT",
+    "DOMAIN-SUFFIX,avito.ru,DIRECT",
+    "DOMAIN-SUFFIX,kuper.ru,DIRECT",
+    "DOMAIN-SUFFIX,samokat.ru,DIRECT",
+    "DOMAIN-SUFFIX,mail.ru,DIRECT",
+    "DOMAIN-SUFFIX,max.ru,DIRECT",
+    "DOMAIN-SUFFIX,oneme.ru,DIRECT",
+    "DOMAIN-SUFFIX,okcdn.ru,DIRECT",
+    "DOMAIN-SUFFIX,vk-analytics.ru,DIRECT",
+    "DOMAIN-SUFFIX,apptracer.ru,DIRECT",
+    "DOMAIN-SUFFIX,trace-flow.ru,DIRECT",
+    "DOMAIN-SUFFIX,gosuslugi.ru,DIRECT",
+    "DOMAIN-SUFFIX,gu-st.ru,DIRECT",
+    "DOMAIN-SUFFIX,iitrust.ru,DIRECT",
+    "DOMAIN-SUFFIX,tmiaf.ru,DIRECT",
+    "DOMAIN-SUFFIX,tbank.ru,DIRECT",
+    "DOMAIN-SUFFIX,tinkoff.ru,DIRECT",
+    "DOMAIN-SUFFIX,t-bank-app.ru,DIRECT",
+    "DOMAIN-SUFFIX,tbank-online.com,DIRECT",
+    "DOMAIN-SUFFIX,cdn-tinkoff.ru,DIRECT",
+    "DOMAIN-SUFFIX,t-static.ru,DIRECT",
+    "DOMAIN,localhost,DIRECT",
+    "DOMAIN-SUFFIX,lan,DIRECT",
+    "DOMAIN-SUFFIX,local,DIRECT",
+    "DOMAIN-SUFFIX,home.arpa,DIRECT",
+    "IP-CIDR,127.0.0.0/8,DIRECT,no-resolve",
+    "IP-CIDR,10.0.0.0/8,DIRECT,no-resolve",
+    "IP-CIDR,172.16.0.0/12,DIRECT,no-resolve",
+    "IP-CIDR,192.168.0.0/16,DIRECT,no-resolve",
+    "IP-CIDR,169.254.0.0/16,DIRECT,no-resolve",
+    "MATCH,Proxy"
+  ],
+  "proxy-groups": [
+    {
+      "name": "Proxy",
+      "type": "select",
+      "proxies": [
+        "AUTO",
+        "FALLBACK",
+        "🇷🇺 Россия => Финляндия | RAW XHTTP VLESS",
+        "🇷🇺 Россия => Финляндия | XHTTP VLESS",
+        "🇫🇮 Финляндия | XHTTP VLESS",
+        "🇫🇮 Финляндия | RAW VLESS",
+        "🇫🇮 Финляндия | HYSTERIA2",
+        "DIRECT"
+      ]
+    },
+    {
+      "name": "AUTO",
+      "type": "url-test",
+      "proxies": [
+        "🇷🇺 Россия => Финляндия | RAW XHTTP VLESS",
+        "🇷🇺 Россия => Финляндия | XHTTP VLESS",
+        "🇫🇮 Финляндия | XHTTP VLESS",
+        "🇫🇮 Финляндия | RAW VLESS",
+        "🇫🇮 Финляндия | HYSTERIA2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": 300,
+      "tolerance": 50,
+      "lazy": true
+    },
+    {
+      "name": "FALLBACK",
+      "type": "fallback",
+      "proxies": [
+        "🇷🇺 Россия => Финляндия | RAW XHTTP VLESS",
+        "🇷🇺 Россия => Финляндия | XHTTP VLESS",
+        "🇫🇮 Финляндия | XHTTP VLESS",
+        "🇫🇮 Финляндия | RAW VLESS",
+        "🇫🇮 Финляндия | HYSTERIA2"
+      ],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": 300,
+      "lazy": true
+    }
+  ]
+}
